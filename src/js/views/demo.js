@@ -11,26 +11,17 @@ export const Demo = () => {
 	return (
 		<div className="container">
 			<ul className="list-group">
-				{store.demo.map((item, index) => {
+				{store.contacts.map((contactos, index) => {
 					return (
-						<li
-							key={index}
-							className="list-group-item d-flex justify-content-between"
-							style={{ background: item.background }}>
-							<Link to={"/single/" + index}>
-								<span>Link to: {item.title}</span>
-							</Link>
-							{// Conditional render example
-							// Check to see if the background is orange, if so, display the message
-							item.background === "orange" ? (
-								<p style={{ color: item.initial }}>
-									Check store/flux.js scroll to the actions to see the code
-								</p>
-							) : null}
-							<button className="btn btn-success" onClick={() => actions.changeColor(index, "orange")}>
-								Change Color
-							</button>
-						</li>
+							<li key={index} className="list-group-item d-flex justify-content-between align-items-center">
+								<div className="d-flex flex-column">
+									<h6>{contactos.name} {contactos.id}</h6>
+									<span>{contactos.email}</span>
+									<span>{contactos.phone}</span>
+									<span>{contactos.address}</span>
+								</div>
+								<button className="btn btn-danger" onClick={() =>actions.deleteContact(contactos.id)}>Eliminar</button>
+							</li>
 					);
 				})}
 			</ul>
