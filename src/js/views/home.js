@@ -11,6 +11,7 @@ export const Home = () => {
 	const [address, setAddress] = useState("");
 
 	const DataSend = (event) => {
+		console.log("He enviado el formulario")
         event.preventDefault();
         const newContact = {
             name: name,
@@ -18,35 +19,35 @@ export const Home = () => {
             phone: phone,
             address: address
         };
-        actions.addContact(newContact);
-        // Limpiar los campos del formulario
+        actions.addContacts(newContact);
+        
         setName("");
         setEmail("");
         setPhone("");
         setAddress("");
     };
-};
 	return (
-	<div className=" mt-5">
-		<form onSubmit={DataSend}>
-			<div class="mb-3">
-				<label htmlFor="inputName" class="form-label">Name</label>
-				<input type="text" class="form-control" id="inputName" value={name} aria-describedby="emailHelp"/>
-				<div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-			</div>
-			<div class="mb-3">
-				<label for="exampleInputPassword1" class="form-label">Email</label>
-				<input type="password" class="form-control" id="exampleInputPassword1"/>
-			</div>
-			<div class="mb-3">
-				<label for="exampleInputPassword1" class="form-label">Phone</label>
-				<input type="password" class="form-control" id="exampleInputPassword1"/>
-			</div>
-			<div class="mb-3">
-				<label for="exampleInputPassword1" class="form-label">Address</label>
-				<input type="password" class="form-control" id="exampleInputPassword1"/>
-			</div>
-			<button type="submit" class="btn btn-primary">Save Changes</button>
-		</form>
-	</div>
-);
+		
+		<div className=" mt-5">
+			<h1>Add a new contact</h1>
+			<form onSubmit={DataSend}>
+				<div className="mb-3">
+					<label htmlFor="inputName" className="form-label" >Full Name</label>
+					<input type="text" className="form-control" value ={name} onChange={(event)=>setName(event.target.value)} id="inputName" aria-describedby="emailHelp" placeholder="Full Name"/>
+				</div>
+				<div className="mb-3">
+					<label htmlFor="inputEmail" className="form-label">Email</label>
+					<input type="email" className="form-control" value ={email} onChange={(event)=>setEmail(event.target.value)} id="inputEmail" placeholder="Enter email"/>
+				</div>
+				<div className="mb-3">
+					<label htmlFor="inputPhone" className="form-label">Phone</label>
+					<input type="text" className="form-control" value ={phone} onChange={(event)=>setPhone(event.target.value)} placeholder="Enter phone number" id="inputPhone"/>
+				</div>
+				<div className="mb-3">
+					<label for="exampleInputPassword1" className="form-label">Address</label>
+					<input type="text" className="form-control" value ={address} onChange={(event)=>setAddress(event.target.value)} placeholder="Enter address" id="exampleInputPassword1"/>
+				</div>
+				<button type="submit" className="btn btn-primary">Save Changes</button>
+			</form>
+		</div>
+)};
