@@ -15,7 +15,7 @@ export const Demo = () => {
 					return (
 							<li key={index} className="list-group-item d-flex justify-content-between align-items-center">
 								<div className="d-flex flex-column">
-									<h6>{contactos.name} {contactos.id}</h6>
+									<h6>{contactos.name}</h6>
 									<span>{contactos.email}</span>
 									<span>{contactos.phone}</span>
 									<span>{contactos.address}</span>
