@@ -27,6 +27,9 @@ const getState = ({ getStore, getActions, setStore }) => {
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
+			modifyContact: (id) =>{
+				console.log("Quiero modificar mi contacto")
+			},
 			addContacts : (newContact) => {
 				console.log("Esto va cada vez mejor")
 				const store = getStore();

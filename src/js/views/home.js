@@ -20,6 +20,7 @@ export const Home = () => {
             address: address
         };
         actions.addContacts(newContact);
+		 alert("Your contact have been saved")
         
         setName("");
         setEmail("");
@@ -27,27 +28,28 @@ export const Home = () => {
         setAddress("");
     };
 	return (
-		
-		<div className=" mt-5">
-			<h1>Add a new contact</h1>
-			<form onSubmit={DataSend}>
-				<div className="mb-3">
-					<label htmlFor="inputName" className="form-label" >Full Name</label>
-					<input type="text" className="form-control" value ={name} onChange={(event)=>setName(event.target.value)} id="inputName" aria-describedby="emailHelp" placeholder="Full Name"/>
-				</div>
-				<div className="mb-3">
-					<label htmlFor="inputEmail" className="form-label">Email</label>
-					<input type="email" className="form-control" value ={email} onChange={(event)=>setEmail(event.target.value)} id="inputEmail" placeholder="Enter email"/>
-				</div>
-				<div className="mb-3">
-					<label htmlFor="inputPhone" className="form-label">Phone</label>
-					<input type="text" className="form-control" value ={phone} onChange={(event)=>setPhone(event.target.value)} placeholder="Enter phone number" id="inputPhone"/>
-				</div>
-				<div className="mb-3">
-					<label for="exampleInputPassword1" className="form-label">Address</label>
-					<input type="text" className="form-control" value ={address} onChange={(event)=>setAddress(event.target.value)} placeholder="Enter address" id="exampleInputPassword1"/>
-				</div>
-				<button type="submit" className="btn btn-primary">Save Changes</button>
-			</form>
+		<div className="d-flex mx-auto justify-content-center min-vh-100">
+			<div className="w-30 p-0">
+				<h1>Add a new contact</h1>
+				<form onSubmit={DataSend}>
+					<div className="mb-3">
+						<label htmlFor="inputName" className="form-label" >Full Name</label>
+						<input type="text" className="form-control" value ={name} onChange={(event)=>setName(event.target.value)} id="inputName" aria-describedby="emailHelp" placeholder="Full Name"/>
+					</div>
+					<div className="mb-3">
+						<label htmlFor="inputEmail" className="form-label">Email</label>
+						<input type="email" className="form-control" value ={email} onChange={(event)=>setEmail(event.target.value)} id="inputEmail" placeholder="Enter email"/>
+					</div>
+					<div className="mb-3">
+						<label htmlFor="inputPhone" className="form-label">Phone</label>
+						<input type="text" className="form-control" value ={phone} onChange={(event)=>setPhone(event.target.value)} placeholder="Enter phone number" id="inputPhone"/>
+					</div>
+					<div className="mb-3">
+						<label for="exampleInputPassword1" className="form-label">Address</label>
+						<input type="text" className="form-control" value ={address} onChange={(event)=>setAddress(event.target.value)} placeholder="Enter address" id="exampleInputPassword1"/>
+					</div>
+					<button type="submit" className="btn btn-primary">Save Changes</button>
+				</form>
+			</div>
 		</div>
 )};

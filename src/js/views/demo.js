@@ -9,7 +9,7 @@ export const Demo = () => {
 	const { store, actions } = useContext(Context);
 
 	return (
-		<div className="container">
+		<div className="container min-vh-100">
 			<ul className="list-group">
 				{store.contacts.map((contactos, index) => {
 					return (
@@ -20,7 +20,10 @@ export const Demo = () => {
 									<span>{contactos.phone}</span>
 									<span>{contactos.address}</span>
 								</div>
-								<button className="btn btn-danger" onClick={() =>actions.deleteContact(contactos.id)}>Eliminar</button>
+								<div>
+									<button className="btn bg-success m-2" onClick={() => actions.modifyContact()}>Modificar contacto</button>
+									<button className="btn btn-danger" onClick={() =>actions.deleteContact(contactos.id)}>Eliminar</button>
+								</div>
 							</li>
 					);
 				})}
