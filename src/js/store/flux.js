@@ -27,8 +27,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
-			modifyContact: (id) =>{
+			modifyContact: (newContactInfo) =>{
 				console.log("Quiero modificar mi contacto")
+			const myHeaders = new Headers();
+			myHeaders.append("Content-Type", "application/json");
+			const myid = newContactInfo.id;
+			const raw = JSON.stringify({
+			"name": newContactInfo.name,
+			"phone": newContactInfo.phone,
+			"email": newContactInfo.email,
+			"address": newContactInfo.address
+			});
+			console.log ("He actualizado el código")
+			console.log("El código que voy a enviar es:" + myid)
+			const modifyOptions = {
+			method: "PUT",
+			headers: myHeaders,
+			body: raw,
+			redirect: "follow"
+			};
+
+			fetch(`https://playground.4geeks.com/contact/agendas/Marcos%201/contacts/${myid}`, modifyOptions)
+			.then((response) => response.text())
+			.then((result) => {console.log(result)
+				getActions().loadSomeData()
+			})
+			.catch((error) => console.error(error));
 			},
 			addContacts : (newContact) => {
 				console.log("Esto va cada vez mejor")
