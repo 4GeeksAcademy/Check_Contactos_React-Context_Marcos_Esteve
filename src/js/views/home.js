@@ -28,7 +28,7 @@ export const Home = () => {
 			setAddress("");
 		}
 		else {
-			alert("Quedan campor por rellenar!")
+			alert("Quedan campos por rellenar!")
 		}
     };
 	return (
