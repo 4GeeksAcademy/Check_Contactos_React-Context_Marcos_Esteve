@@ -19,13 +19,17 @@ export const Home = () => {
             phone: phone,
             address: address
         };
-        actions.addContacts(newContact);
-		 alert("Your contact have been saved")
-        
-        setName("");
-        setEmail("");
-        setPhone("");
-        setAddress("");
+		if (name!="" && email!="" && phone!="" && address!=""){
+			actions.addContacts(newContact);
+			alert("Your contact have been saved") 
+			setName("");
+			setEmail("");
+			setPhone("");
+			setAddress("");
+		}
+		else {
+			alert("Quedan campor por rellenar!")
+		}
     };
 	return (
 		<div className="d-flex mx-auto justify-content-center min-vh-100">
@@ -45,8 +49,8 @@ export const Home = () => {
 						<input type="text" className="form-control" value ={phone} onChange={(event)=>setPhone(event.target.value)} placeholder="Enter phone number" id="inputPhone"/>
 					</div>
 					<div className="mb-3">
-						<label for="exampleInputPassword1" className="form-label">Address</label>
-						<input type="text" className="form-control" value ={address} onChange={(event)=>setAddress(event.target.value)} placeholder="Enter address" id="exampleInputPassword1"/>
+						<label htmlFor="inputAddress" className="form-label">Address</label>
+						<input type="text" className="form-control" value ={address} onChange={(event)=>setAddress(event.target.value)} placeholder="Enter address" id="inputAddress"/>
 					</div>
 					<button type="submit" className="btn btn-primary">Save Changes</button>
 				</form>
